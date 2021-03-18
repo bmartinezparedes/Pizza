@@ -2,10 +2,45 @@ package cod;
 
 public class Pizza {
 
+    public static final Integer PEQUEÑA = 0;
+    public static final Integer MEDIANA = 1;
+    public static final Integer GRANDE = 2;
+
     private String masa, tipoSalsa;
     private boolean relleno, salsa, cebolla, sinGluten, extraQueso, piña, champiñones, jamon;
+    private int tipo;
 
-    public Pizza(String masa, String tipoSalsa, boolean relleno, boolean salsa, boolean cebolla, boolean sinGluten, boolean extraQueso, boolean piña, boolean champiñones, boolean jamon) {
+
+    public Pizza() {
+        this.masa = "normal";
+        this.tipoSalsa = "Tomate";
+        this.relleno = true;
+        this.salsa = true;
+        this.cebolla = false;
+        this.sinGluten = true;
+        this.extraQueso = false;
+        this.piña = false;
+        this.champiñones = false;
+        this.jamon = true;
+        this.tipo = MEDIANA;
+    }
+
+    /**
+     * Objeto pizza
+     *
+     * @param masa        Puede ser fina, normal o gruesa
+     * @param tipoSalsa   si o no
+     * @param relleno     si o no
+     * @param salsa       si o no
+     * @param cebolla     si o no
+     * @param sinGluten   si o no
+     * @param extraQueso  si o no
+     * @param piña        si o no
+     * @param champiñones si o no
+     * @param jamon       si o no
+     * @param tipo        1-Pequeña 2-mediana 3 grande
+     */
+    public Pizza(String masa, String tipoSalsa, boolean relleno, boolean salsa, boolean cebolla, boolean sinGluten, boolean extraQueso, boolean piña, boolean champiñones, boolean jamon, int tipo) {
         this.masa = masa;
         this.tipoSalsa = tipoSalsa;
         this.relleno = relleno;
@@ -16,6 +51,7 @@ public class Pizza {
         this.piña = piña;
         this.champiñones = champiñones;
         this.jamon = jamon;
+        this.tipo = tipo;
     }
 
     public String getMasa() {
@@ -98,6 +134,14 @@ public class Pizza {
         this.jamon = jamon;
     }
 
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+
     @Override
     public String toString() {
         return "Tu pizza se compone de: " +
@@ -110,6 +154,7 @@ public class Pizza {
                 ", extraQueso=" + extraQueso +
                 ", piña=" + piña +
                 ", champiñones=" + champiñones +
-                ", jamon=" + jamon;
+                ", jamon=" + jamon +
+                ", tipo=" + tipo;
     }
 }
